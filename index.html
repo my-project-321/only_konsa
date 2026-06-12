@@ -3,101 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Інтерактивна презентація</title>
+<title>НМТ — Підготовка</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+ 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 24px; color: #1a1a1a; }
-.slide { background: #fff; border: 1px solid #e0e0e0; border-radius: 16px; padding: 32px 36px; margin-bottom: 24px; max-width: 860px; margin-left: auto; margin-right: auto; }
-.slide-tag { font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
-.slide-heading { font-size: 26px; font-weight: 600; margin-bottom: 6px; }
-.slide-sub { font-size: 15px; color: #666; margin-bottom: 24px; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; padding: 24px; color: #1a1a1a; }
+ 
+.slide { background: #fff; border: 1px solid #e4e7ec; border-radius: 20px; padding: 36px 40px; margin-bottom: 28px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.slide-heading { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.slide-sub { font-size: 14px; color: #666; margin-bottom: 26px; }
+ 
+.nav-tabs { display: flex; gap: 6px; margin-bottom: 28px; flex-wrap: wrap; }
+.nav-tab { padding: 8px 16px; border-radius: 9px; border: 1.5px solid #e0e4eb; background: #fff; font-size: 13px; font-weight: 500; color: #555; cursor: pointer; transition: all .15s; font-family: inherit; }
+.nav-tab:hover { background: #f0f6ff; border-color: #3B7DE8; color: #3B7DE8; }
+.nav-tab.active { background: #1D4ED8; border-color: #1D4ED8; color: #fff; }
+ 
 .field-row { margin-bottom: 16px; }
-.field-label { font-size: 14px; color: #555; margin-bottom: 6px; }
-.field-input { width: 100%; font-size: 15px; padding: 9px 13px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #1a1a1a; outline: none; transition: border-color .2s; }
-.field-input:focus { border-color: #185FA5; }
+.field-label { font-size: 13px; font-weight: 500; color: #444; margin-bottom: 6px; }
+.field-input { width: 100%; font-size: 15px; padding: 10px 14px; border: 1.5px solid #dde1ea; border-radius: 10px; background: #fff; color: #1a1a1a; outline: none; transition: border-color .2s; font-family: inherit; }
+.field-input:focus { border-color: #3B7DE8; }
 .slider-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.slider-wrap input[type=range] { flex: 1; accent-color: #185FA5; }
-.slider-val { font-size: 16px; font-weight: 600; min-width: 28px; text-align: right; color: #185FA5; }
-.summary-box { background: #f8f8f8; border-radius: 10px; padding: 16px 20px; margin-top: 8px; }
-.slabel { font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
-.summary-line { font-size: 14px; line-height: 2.1; color: #333; }
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
-.subject-card { border-radius: 10px; padding: 14px 16px; }
-.sname { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-.input-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.input-row label { font-size: 13px; color: #666; }
-.num-input { width: 74px; font-size: 14px; font-weight: 600; text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 5px 8px; background: #fff; color: #1a1a1a; outline: none; }
-.num-input:focus { border-color: #185FA5; }
-.gap-badge { display: inline-block; font-size: 12px; padding: 3px 9px; border-radius: 6px; margin-top: 4px; font-weight: 500; }
-.gap-need { background: #fff0f0; color: #a32d2d; }
-.gap-over { background: #eaf3de; color: #27500a; }
-.gap-done { background: #e8f4ff; color: #0c447c; }
-.select-styled { font-size: 14px; padding: 7px 11px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #1a1a1a; outline: none; cursor: pointer; }
-.select-styled:focus { border-color: #185FA5; }
-.nav-tabs { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
-.nav-tab { padding: 7px 15px; border-radius: 8px; border: 1px solid #ddd; background: #fff; font-size: 13px; color: #555; cursor: pointer; transition: all .15s; font-family: inherit; }
-.nav-tab:hover { background: #f0f6ff; border-color: #185FA5; color: #185FA5; }
-.nav-tab.active { background: #185FA5; border-color: #185FA5; color: #fff; font-weight: 500; }
+.slider-wrap input[type=range] { flex: 1; accent-color: #1D4ED8; height: 4px; }
+.slider-val { font-size: 17px; font-weight: 700; min-width: 30px; text-align: right; color: #1D4ED8; }
+.summary-box { background: #f7f8fa; border-radius: 12px; padding: 16px 20px; margin-top: 8px; border: 1px solid #eaedf2; }
+.slabel { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.summary-line div { font-size: 14px; line-height: 2.2; color: #333; }
+ 
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.subject-card { border-radius: 14px; padding: 16px 18px; }
+.sname { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+.input-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.input-row label { font-size: 13px; color: #555; }
+.num-input { width: 76px; font-size: 15px; font-weight: 700; text-align: center; border: 1.5px solid #dde1ea; border-radius: 9px; padding: 6px 8px; background: #fff; color: #1a1a1a; outline: none; font-family: inherit; }
+.num-input:focus { border-color: #3B7DE8; }
+.gap-badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 7px; margin-top: 4px; font-weight: 600; }
+.gap-need { background: #fff0f0; color: #b91c1c; }
+.gap-over { background: #eaf3de; color: #2d6a04; }
+.gap-done { background: #e0edff; color: #1d4ed8; }
+.select-styled { font-size: 14px; padding: 7px 12px; border: 1.5px solid #dde1ea; border-radius: 9px; background: #fff; color: #1a1a1a; outline: none; cursor: pointer; font-family: inherit; }
+ 
+.topics-block { margin-top: 28px; padding-top: 24px; border-top: 1px solid #eaedf2; }
+.topics-title { font-size: 13px; font-weight: 700; color: #fff; background: #1e5a7a; border-radius: 10px; padding: 10px 18px; margin-bottom: 18px; text-align: center; letter-spacing: 0.02em; }
+.topics-list { list-style: none; margin: 0 0 20px; padding: 0; }
+.topics-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; font-weight: 500; line-height: 1.6; margin-bottom: 4px; }
+.topics-list li::before { content: '→'; color: #e86432; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.score-visual { display: flex; align-items: center; gap: 16px; margin-top: 16px; justify-content: center; }
+.score-fraction { width: 80px; height: 80px; border-radius: 50%; border: 2.5px solid #1D4ED8; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; color: #1D4ED8; flex-shrink: 0; }
+.score-eq { font-size: 22px; color: #888; font-weight: 600; }
+.score-total { width: 88px; height: 88px; border-radius: 50%; background: #1D4ED8; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+.score-total .num { font-size: 22px; font-weight: 800; line-height: 1; }
+.score-total .lbl { font-size: 10px; font-weight: 600; text-align: center; line-height: 1.3; margin-top: 2px; opacity: .9; }
+ 
+/* history mnemonic visual */
+.hist-mnemonic { display: flex; align-items: center; gap: 20px; margin: 20px 0; padding: 16px 20px; background: #f7f8fa; border-radius: 14px; border: 1px solid #eaedf2; flex-wrap: wrap; justify-content: center; }
+.hist-mnemonic-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.hist-mnemonic-num { font-size: 20px; font-weight: 800; color: #e86432; }
+.hist-mnemonic-label { font-size: 12px; font-weight: 600; color: #555; text-align: center; }
+.hist-mnemonic-arrow { font-size: 28px; color: #bbb; }
+ 
+.quiz-block { margin-top: 28px; padding-top: 24px; border-top: 1px solid #eaedf2; }
+.quiz-title { font-size: 13px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+.quiz-question { font-size: 16px; font-weight: 700; line-height: 1.55; margin-bottom: 16px; color: #1a1a1a; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.quiz-option { display: flex; align-items: center; gap: 12px; padding: 11px 16px; border-radius: 10px; border: 1.5px solid #dde1ea; cursor: pointer; transition: all .15s; user-select: none; }
+.quiz-option:hover:not(.locked) { border-color: #3B7DE8; background: #f4f8ff; }
+.quiz-option.selected { border-color: #3B7DE8; background: #edf3ff; }
+.quiz-option.correct { border-color: #16a34a; background: #f0fdf4; }
+.quiz-option.wrong { border-color: #dc2626; background: #fef2f2; }
+.quiz-option.show-correct { border-color: #16a34a; background: #f0fdf4; }
+.opt-letter { width: 30px; height: 30px; border-radius: 7px; border: 1.5px solid #bbb; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #666; flex-shrink: 0; }
+.quiz-option.correct .opt-letter { border-color: #16a34a; color: #16a34a; background: #dcfce7; }
+.quiz-option.wrong .opt-letter { border-color: #dc2626; color: #dc2626; background: #fee2e2; }
+.quiz-option.show-correct .opt-letter { border-color: #16a34a; color: #16a34a; background: #dcfce7; }
+.opt-text { font-size: 14px; font-weight: 500; color: #333; }
+.quiz-check-btn { background: #1D4ED8; color: #fff; border: none; border-radius: 10px; padding: 11px 24px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background .15s; }
+.quiz-check-btn:hover { background: #1a44c2; }
+.quiz-check-btn:disabled { background: #c5cad4; cursor: default; }
+.quiz-feedback { margin-top: 14px; padding: 14px 18px; border-radius: 12px; display: flex; gap: 12px; align-items: flex-start; }
+.quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.quiz-feedback.wrong-fb { background: #fef2f2; border: 1px solid #fecaca; }
+.fb-icon { font-size: 22px; flex-shrink: 0; line-height: 1; margin-top: 1px; }
+.fb-text { font-size: 14px; line-height: 1.6; color: #333; }
+.fb-text strong { display: block; margin-bottom: 4px; font-size: 15px; }
+.teacher-bubble { background: #edf3ff; border: 1.5px solid #c0d4f8; border-radius: 12px; padding: 14px 16px; font-size: 13px; line-height: 1.65; color: #1e3a6e; margin-top: 16px; display: none; }
+.teacher-bubble strong { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #3B7DE8; margin-bottom: 6px; }
+ 
+/* calc button */
+.calc-btn-wrap { text-align: center; margin-top: 24px; }
+.calc-btn { display: inline-flex; align-items: center; gap: 10px; background: #1D4ED8; color: #fff; border: none; border-radius: 12px; padding: 14px 28px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; text-decoration: none; transition: background .15s; }
+.calc-btn:hover { background: #1a44c2; }
+.calc-btn svg { flex-shrink: 0; }
 </style>
 </head>
 <body>
  
-<!-- SLIDE 1 -->
+<!-- ═══ СЛАЙД 1 ═══ -->
 <div class="slide">
-  <div class="slide-tag">Слайд 1</div>
-  <div class="nav-tabs">
-    <button class="nav-tab active"  onclick="showSubject('math')">Математика</button>
-    <button class="nav-tab"         onclick="showSubject('hist')">Історія</button>
-    <button class="nav-tab"         onclick="showSubject('ukr')">Українська</button>
-    <button class="nav-tab"         onclick="showSubject('bio')">Біологія</button>
-    <button class="nav-tab"         onclick="showSubject('lit')">Укр. література</button>
-    <button class="nav-tab"         onclick="showSubject('eng')">Англійська</button>
-  </div>
- 
-  <!-- форми для кожного предмету -->
-  <div id="form-math"><div class="slide-heading">Математика</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="math-level" oninput="updateSummary('math')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="math-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="math-hard" placeholder="Напиши назву теми..." oninput="updateSummary('math')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="math-fav" placeholder="Напиши назву теми..." oninput="updateSummary('math')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="math-imp" placeholder="Напиши через кому..." oninput="updateSummary('math')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="math-summary"></div></div></div>
- 
-  <div id="form-hist" style="display:none"><div class="slide-heading">Історія</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="hist-level" oninput="updateSummary('hist')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="hist-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="hist-hard" placeholder="Напиши назву теми..." oninput="updateSummary('hist')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="hist-fav" placeholder="Напиши назву теми..." oninput="updateSummary('hist')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="hist-imp" placeholder="Напиши через кому..." oninput="updateSummary('hist')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="hist-summary"></div></div></div>
- 
-  <div id="form-ukr" style="display:none"><div class="slide-heading">Українська мова</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="ukr-level" oninput="updateSummary('ukr')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="ukr-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="ukr-hard" placeholder="Напиши назву теми..." oninput="updateSummary('ukr')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="ukr-fav" placeholder="Напиши назву теми..." oninput="updateSummary('ukr')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="ukr-imp" placeholder="Напиши через кому..." oninput="updateSummary('ukr')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="ukr-summary"></div></div></div>
- 
-  <div id="form-bio" style="display:none"><div class="slide-heading">Біологія</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="bio-level" oninput="updateSummary('bio')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="bio-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="bio-hard" placeholder="Напиши назву теми..." oninput="updateSummary('bio')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="bio-fav" placeholder="Напиши назву теми..." oninput="updateSummary('bio')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="bio-imp" placeholder="Напиши через кому..." oninput="updateSummary('bio')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="bio-summary"></div></div></div>
- 
-  <div id="form-lit" style="display:none"><div class="slide-heading">Українська література</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="lit-level" oninput="updateSummary('lit')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="lit-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="lit-hard" placeholder="Напиши назву теми..." oninput="updateSummary('lit')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="lit-fav" placeholder="Напиши назву теми..." oninput="updateSummary('lit')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="lit-imp" placeholder="Напиши через кому..." oninput="updateSummary('lit')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="lit-summary"></div></div></div>
- 
-  <div id="form-eng" style="display:none"><div class="slide-heading">Англійська мова</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="eng-level" oninput="updateSummary('eng')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="eng-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="eng-hard" placeholder="Напиши назву теми..." oninput="updateSummary('eng')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="eng-fav" placeholder="Напиши назву теми..." oninput="updateSummary('eng')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="eng-imp" placeholder="Напиши через кому..." oninput="updateSummary('eng')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="eng-summary"></div></div></div>
-</div>
- 
-<!-- SLIDE 2 -->
-<div class="slide">
-  <div class="slide-tag">Слайд 2</div>
-  <div class="slide-heading" style="margin-bottom:20px">Встановимо точку А</div>
+  <div class="slide-heading" style="margin-bottom:22px">Встановимо точку А</div>
   <div class="grid2">
-    <!-- Математика -->
     <div class="subject-card" style="background:#eaf3de">
       <div class="sname" style="color:#3B6D11">Математика</div>
       <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="math-now" value="140" min="0" max="200" oninput="updateScores()"></div>
       <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="math-goal" value="200" min="0" max="200" oninput="updateScores()"></div>
       <div id="math-gap"></div>
     </div>
-    <!-- Історія -->
     <div class="subject-card" style="background:#fef0eb">
       <div class="sname" style="color:#993C1D">Історія</div>
       <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="history-now" value="135" min="0" max="200" oninput="updateScores()"></div>
       <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="history-goal" value="180" min="0" max="200" oninput="updateScores()"></div>
       <div id="history-gap"></div>
     </div>
-    <!-- Українська -->
     <div class="subject-card" style="background:#e8f2fd">
-      <div class="sname" style="color:#185FA5">Українська мова</div>
+      <div class="sname" style="color:#1D4ED8">Українська мова</div>
       <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="ukr2-now" value="180" min="0" max="200" oninput="updateScores()"></div>
       <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="ukr2-goal" value="200" min="0" max="200" oninput="updateScores()"></div>
       <div id="ukr2-gap"></div>
     </div>
-    <!-- 4-й предмет з вибором -->
     <div class="subject-card" style="background:#fceaf2">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
-        <select class="select-styled" id="extra-pick" onchange="updateExtraName()">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <select class="select-styled" id="extra-pick" onchange="updateScores()">
           <option value="bio">Біологія</option>
           <option value="lit">Укр. література</option>
           <option value="eng">Англійська</option>
@@ -108,82 +133,315 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       <div id="extra-gap"></div>
     </div>
   </div>
- 
   <div style="position:relative;height:260px;">
-    <canvas id="scores-chart" role="img" aria-label="Графік балів за предметами"></canvas>
+    <canvas id="scores-chart"></canvas>
+  </div>
+  <div class="calc-btn-wrap">
+    <a class="calc-btn" href="https://abitly.org/uk/nmt-calculator" target="_blank" rel="noopener">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+      РОЗРАХУНОК КОНКУРСНОГО БАЛА
+    </a>
   </div>
 </div>
  
-<!-- SLIDE 3 -->
+<!-- ═══ СЛАЙД 3 ═══ -->
 <div class="slide">
-  <div class="slide-tag">Слайд 3</div>
-  <div class="slide-heading">Що буде, якщо відтягувати підготовку?</div>
-  <div style="font-size:13px;color:#888;margin:6px 0 24px">Побудовано на основі твоїх балів зі слайду 2 — усі чотири предмети</div>
-  <div style="position:relative;height:320px;">
-    <canvas id="decline-chart" role="img" aria-label="Графік падіння результату без підготовки"></canvas>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSubject('math')">Математика</button>
+    <button class="nav-tab"        onclick="showSubject('hist')">Історія</button>
+    <button class="nav-tab"        onclick="showSubject('ukr')">Українська</button>
+    <button class="nav-tab"        onclick="showSubject('bio')">Біологія</button>
+    <button class="nav-tab"        onclick="showSubject('lit')">Укр. література</button>
+    <button class="nav-tab"        onclick="showSubject('eng')">Англійська</button>
   </div>
-  <div style="display:flex;gap:20px;margin-top:14px;font-size:13px;color:#666;flex-wrap:wrap" id="legend3"></div>
+ 
+  <!-- ─── МАТЕМАТИКА ─── -->
+  <div id="form-math">
+    <div class="slide-heading">Математика</div>
+    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
+    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="math-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="math-level-v">5</span></div>
+    <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="math-hard" placeholder="Напиши назву теми..."></div>
+    <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="math-fav" placeholder="Напиши назву теми..."></div>
+    <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="math-imp" placeholder="Напиши через кому..."></div>
+    
+    <div class="topics-block">
+      <div class="topics-title">Теми, що принесуть найбільше балів</div>
+      <ul class="topics-list"><li>Стереометрія</li><li>Функції</li><li>Тригонометрія</li></ul>
+      <div class="score-visual"><div class="score-fraction">9/36</div><div class="score-eq">=</div><div class="score-total"><span class="num">10</span><span class="lbl">тестових балів</span></div></div>
+    </div>
+    <div class="quiz-block">
+      <div class="quiz-title">Практичне завдання</div>
+      <div class="quiz-question">Кількість зошитів відноситься до кількості ручок як 3:4. Якою може бути загальна кількість ручок і зошитів?</div>
+      <div class="quiz-options" id="quiz-math-opts">
+        <div class="quiz-option" data-val="A" onclick="selectOpt('math','A')"><span class="opt-letter">А</span><span class="opt-text">10</span></div>
+        <div class="quiz-option" data-val="B" onclick="selectOpt('math','B')"><span class="opt-letter">Б</span><span class="opt-text">14</span></div>
+        <div class="quiz-option" data-val="C" onclick="selectOpt('math','C')"><span class="opt-letter">В</span><span class="opt-text">8</span></div>
+        <div class="quiz-option" data-val="D" onclick="selectOpt('math','D')"><span class="opt-letter">Г</span><span class="opt-text">15</span></div>
+      </div>
+      <button class="quiz-check-btn" id="quiz-math-btn" onclick="checkQuiz('math')" disabled>Перевірити</button>
+      <div id="quiz-math-feedback" style="display:none"></div>
+      <div class="teacher-bubble" id="bubble-math">
+        <strong>Підказка від викладача</strong>
+        Шукай число яке ділиться на суму цифр у відношенні: <strong>3+4 = 7</strong> → яке з чисел ділиться на 7?
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ─── ІСТОРІЯ ─── -->
+  <div id="form-hist" style="display:none">
+    <div class="slide-heading">Історія</div>
+    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
+    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="hist-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="hist-level-v">5</span></div>
+    <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="hist-hard" placeholder="Напиши назву теми..."></div>
+    <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="hist-fav" placeholder="Напиши назву теми..."></div>
+    <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="hist-imp" placeholder="Напиши через кому..."></div>
+    
+    <div class="topics-block">
+      <div class="topics-title">Теми, що принесуть найбільше балів</div>
+      <ul class="topics-list"><li>Руїна</li><li>Культура XIX ст.</li><li>Українська революція (1917–1921 рр.)</li></ul>
+      <div class="score-visual"><div class="score-fraction">5/32</div><div class="score-eq">=</div><div class="score-total"><span class="num">16</span><span class="lbl">тестових балів</span></div></div>
+    </div>
+    <div class="quiz-block">
+      <div class="quiz-title">Практичне завдання</div>
+      <div class="quiz-question">Вкажіть, яке із козацько-селянських повстань XVI–XVII ст. відбулося найпершим</div>
+      <div class="quiz-options" id="quiz-hist-opts">
+        <div class="quiz-option" data-val="A" onclick="selectOpt('hist','A')"><span class="opt-letter">А</span><span class="opt-text">Повстання Т. Федоровича (Трясила)</span></div>
+        <div class="quiz-option" data-val="B" onclick="selectOpt('hist','B')"><span class="opt-letter">Б</span><span class="opt-text">Повстання С. Наливайка</span></div>
+        <div class="quiz-option" data-val="C" onclick="selectOpt('hist','C')"><span class="opt-letter">В</span><span class="opt-text">Повстання І. Сулими</span></div>
+        <div class="quiz-option" data-val="D" onclick="selectOpt('hist','D')"><span class="opt-letter">Г</span><span class="opt-text">Повстання К. Косинського</span></div>
+      </div>
+      <button class="quiz-check-btn" id="quiz-hist-btn" onclick="checkQuiz('hist')" disabled>Перевірити</button>
+      <div id="quiz-hist-feedback" style="display:none"></div>
+      <div class="teacher-bubble" id="bubble-hist">
+        <strong>Підказка від викладача</strong>
+        Фраза: <strong style="color:#1D4ED8">СПОЧАТКУ КОСИМО, А ПОТІМ НАЛИВАЄМО</strong><br>
+        <div class="hist-mnemonic" style="margin-top:12px">
+          <div class="hist-mnemonic-item">
+            <div class="hist-mnemonic-num">1</div>
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="23" y="4" width="6" height="30" rx="3" fill="#888" transform="rotate(-30 26 26)"/>
+              <rect x="6" y="32" width="40" height="6" rx="3" fill="#5a3a1a" transform="rotate(-30 26 26)"/>
+              <path d="M10 42 Q6 38 10 34 L20 30 Q24 42 20 44 Z" fill="#c0a060"/>
+            </svg>
+            <div class="hist-mnemonic-label">Повстання<br>К. Косинського</div>
+          </div>
+          <div class="hist-mnemonic-arrow">→</div>
+          <div class="hist-mnemonic-item">
+            <div class="hist-mnemonic-num">2</div>
+            <svg width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 14 Q8 8 14 8 L30 8 Q36 8 36 14 L34 46 Q34 50 22 50 Q10 50 10 46 Z" fill="#bcd8f0" stroke="#6aaad8" stroke-width="2"/>
+              <ellipse cx="22" cy="14" rx="14" ry="4" fill="none" stroke="#6aaad8" stroke-width="2"/>
+              <path d="M8 24 Q8 28 22 28 Q36 28 36 24" stroke="#6aaad8" stroke-width="1.2" fill="none" stroke-dasharray="3 2"/>
+            </svg>
+            <div class="hist-mnemonic-label">Повстання<br>С. Наливайка</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ─── УКРАЇНСЬКА ─── -->
+  <div id="form-ukr" style="display:none">
+    <div class="slide-heading">Українська мова</div>
+    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
+    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="ukr-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="ukr-level-v">5</span></div>
+    <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="ukr-hard" placeholder="Напиши назву теми..."></div>
+    <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="ukr-fav" placeholder="Напиши назву теми..."></div>
+    <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="ukr-imp" placeholder="Напиши через кому..."></div>
+    
+    <div class="topics-block">
+      <div class="topics-title">Теми, що принесуть найбільше балів</div>
+      <ul class="topics-list"><li>Члени речення</li><li>Складні речення</li><li>Частини мови</li></ul>
+      <div class="score-visual"><div class="score-fraction">15/35</div><div class="score-eq">=</div><div class="score-total"><span class="num">28</span><span class="lbl">тестових балів</span></div></div>
+    </div>
+    <div class="quiz-block">
+      <div class="quiz-title">Практичне завдання</div>
+      <div class="quiz-question">Оберіть речення, яке НЕ потребує редагування</div>
+      <div class="quiz-options" id="quiz-ukr-opts">
+        <div class="quiz-option" data-val="A" onclick="selectOpt('ukr','A')"><span class="opt-letter">А</span><span class="opt-text">Майже всі учні бігали по партах, галасували.</span></div>
+        <div class="quiz-option" data-val="B" onclick="selectOpt('ukr','B')"><span class="opt-letter">Б</span><span class="opt-text">Майже усі учні бігали по партах, галасували.</span></div>
+        <div class="quiz-option" data-val="C" onclick="selectOpt('ukr','C')"><span class="opt-letter">В</span><span class="opt-text">Майже всі учні бігали по партам, галасували.</span></div>
+        <div class="quiz-option" data-val="D" onclick="selectOpt('ukr','D')"><span class="opt-letter">Г</span><span class="opt-text">Майже усі учні бігали по партам, галасували.</span></div>
+      </div>
+      <button class="quiz-check-btn" id="quiz-ukr-btn" onclick="checkQuiz('ukr')" disabled>Перевірити</button>
+      <div id="quiz-ukr-feedback" style="display:none"></div>
+      <div class="teacher-bubble" id="bubble-ukr">
+        <strong>Правило ПОХ</strong>
+        Коли є прийменник <strong>по-</strong>, то в закінченні має бути <strong>-х</strong>: по партах.<br>
+        <strong>МайжЕ</strong> + далі слово з приголосного → пишемо «всі», а не «усі».
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ─── БІОЛОГІЯ ─── -->
+  <div id="form-bio" style="display:none">
+    <div class="slide-heading">Біологія</div>
+    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
+    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="bio-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="bio-level-v">5</span></div>
+    <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="bio-hard" placeholder="Напиши назву теми..."></div>
+    <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="bio-fav" placeholder="Напиши назву теми..."></div>
+    <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="bio-imp" placeholder="Напиши через кому..."></div>
+    
+    <div class="topics-block">
+      <div class="topics-title">Теми, що принесуть найбільше балів</div>
+      <ul class="topics-list"><li>Ботаніка</li><li>Зоологія</li><li>Генетика</li></ul>
+      <div class="score-visual"><div class="score-fraction">17/36</div><div class="score-eq">=</div><div class="score-total"><span class="num">22</span><span class="lbl">тестових бали</span></div></div>
+    </div>
+    <div class="quiz-block">
+      <div class="quiz-title">Практичне завдання</div>
+      <div class="quiz-question">Який вуглевод міститься в ДНК?</div>
+      <div class="quiz-options" id="quiz-bio-opts">
+        <div class="quiz-option" data-val="A" onclick="selectOpt('bio','A')"><span class="opt-letter">А</span><span class="opt-text">рибоза</span></div>
+        <div class="quiz-option" data-val="B" onclick="selectOpt('bio','B')"><span class="opt-letter">Б</span><span class="opt-text">дезоксирибоза</span></div>
+        <div class="quiz-option" data-val="C" onclick="selectOpt('bio','C')"><span class="opt-letter">В</span><span class="opt-text">піровиноградна кислота</span></div>
+        <div class="quiz-option" data-val="D" onclick="selectOpt('bio','D')"><span class="opt-letter">Г</span><span class="opt-text">аденозин</span></div>
+      </div>
+      <button class="quiz-check-btn" id="quiz-bio-btn" onclick="checkQuiz('bio')" disabled>Перевірити</button>
+      <div id="quiz-bio-feedback" style="display:none"></div>
+      <div class="teacher-bubble" id="bubble-bio">
+        <strong>Підказка від викладача</strong>
+        Запам'ятовуємо: <strong>Д</strong>НК — <strong>Д</strong>езоксирибоза, <strong>Р</strong>НК — <strong>Р</strong>ибоза
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ─── УКР. ЛІТ (заглушка) ─── -->
+  <div id="form-lit" style="display:none">
+    <div class="slide-heading">Українська література</div>
+    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
+    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="lit-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="lit-level-v">5</span></div>
+    <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="lit-hard" placeholder="Напиши назву теми..."></div>
+    <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="lit-fav" placeholder="Напиши назву теми..."></div>
+    <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="lit-imp" placeholder="Напиши через кому..."></div>
+    
+    <div class="topics-block" style="text-align:center;padding:24px 0;color:#aaa;font-size:14px">Теми та завдання будуть додані незабаром</div>
+  </div>
+ 
+  <!-- ─── АНГЛІЙСЬКА ─── -->
+  <div id="form-eng" style="display:none">
+    <div class="slide-heading">Англійська мова</div>
+    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
+    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="eng-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="eng-level-v">5</span></div>
+    <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="eng-hard" placeholder="Напиши назву теми..."></div>
+    <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="eng-fav" placeholder="Напиши назву теми..."></div>
+    <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="eng-imp" placeholder="Напиши через кому..."></div>
+    
+    <div class="topics-block">
+      <div class="topics-title">Теми, що принесуть найбільше балів</div>
+      <ul class="topics-list">
+        <li>Стратегії читання</li>
+        <li>Лексика для Use of English (easily confused words, prepositional phrases, phrasal verbs, synonyms)</li>
+        <li>Граматика (часи, інфінітив/герундій, ступені порівняння)</li>
+      </ul>
+      <div class="score-visual"><div class="score-fraction">15/35</div><div class="score-eq">=</div><div class="score-total"><span class="num">28</span><span class="lbl">тестових балів</span></div></div>
+    </div>
+    <div class="quiz-block">
+      <div class="quiz-title">Практичне завдання</div>
+      <div class="quiz-question">… the daily lives of people around the globe – and demonstrate how climate change can (42)_______ life on the continents</div>
+      <div class="quiz-options" id="quiz-eng-opts">
+        <div class="quiz-option" data-val="A" onclick="selectOpt('eng','A')"><span class="opt-letter">А</span><span class="opt-text">transforms</span></div>
+        <div class="quiz-option" data-val="B" onclick="selectOpt('eng','B')"><span class="opt-letter">Б</span><span class="opt-text">transforming</span></div>
+        <div class="quiz-option" data-val="C" onclick="selectOpt('eng','C')"><span class="opt-letter">В</span><span class="opt-text">transform</span></div>
+        <div class="quiz-option" data-val="D" onclick="selectOpt('eng','D')"><span class="opt-letter">Г</span><span class="opt-text">to transform</span></div>
+      </div>
+      <button class="quiz-check-btn" id="quiz-eng-btn" onclick="checkQuiz('eng')" disabled>Перевірити</button>
+      <div id="quiz-eng-feedback" style="display:none"></div>
+      <div class="teacher-bubble" id="bubble-eng">
+        <strong>Підказка від викладача — Модальні дієслова</strong>
+        Після модальних дієслів (can, could, may, must, will…) завжди стоїть інфінітив без частки to.<br><br>
+        <em>Вірш-лайфгак:</em><br>
+        Після них нема закінчень<br>
+        Після них немає to<br>
+        Після них лиш дієслово<br>
+        Пам'ятай цю простоту
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ═══ СЛАЙД 2 ═══ -->
+<div class="slide">
+  <div class="slide-heading">Що буде, якщо відтягувати підготовку?</div>
+  <div style="position:relative;height:320px;margin-top:20px">
+    <canvas id="decline-chart"></canvas>
+  </div>
+  <div style="display:flex;gap:20px;margin-top:16px;font-size:13px;color:#666;flex-wrap:wrap;justify-content:center">
+    <span style="display:flex;align-items:center;gap:6px"><span style="width:24px;height:3px;background:#1D4ED8;border-radius:2px;display:inline-block"></span>З підготовкою</span>
+    <span style="display:flex;align-items:center;gap:6px"><span style="width:24px;height:3px;background:rgba(29,78,216,.4);border-radius:2px;display:inline-block;border-top:2px dashed rgba(29,78,216,.6)"></span>Без підготовки</span>
+  </div>
 </div>
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
+/* ── tabs ── */
 const allForms = ['math','hist','ukr','bio','lit','eng'];
-const subjectNames = {math:'Математика',hist:'Історія',ukr:'Українська мова',bio:'Біологія',lit:'Укр. література',eng:'Англійська'};
- 
 function showSubject(key) {
-  allForms.forEach(k => { document.getElementById('form-'+k).style.display = k===key?'':'none'; });
-  document.querySelectorAll('.nav-tab').forEach((btn,i) => { btn.classList.toggle('active', allForms[i]===key); });
+  allForms.forEach(k => document.getElementById('form-'+k).style.display = k===key?'':'none');
+  document.querySelectorAll('.nav-tab').forEach((btn,i) => btn.classList.toggle('active', allForms[i]===key));
 }
  
-function updateSummary(key) {
-  const level = document.getElementById(key+'-level').value;
-  document.getElementById(key+'-level-v').textContent = level;
-  const hard = document.getElementById(key+'-hard').value || '—';
-  const fav  = document.getElementById(key+'-fav').value  || '—';
-  const imp  = document.getElementById(key+'-imp').value  || '—';
-  document.getElementById(key+'-summary').innerHTML =
-    `<div><span style="color:#888">Рівень знань:</span> <strong>${level}/10</strong></div>` +
-    `<div><span style="color:#888">Найскладніша тема:</span> ${hard}</div>` +
-    `<div><span style="color:#888">Найулюбленіша тема:</span> ${fav}</div>` +
-    `<div><span style="color:#888">Найважливіші теми:</span> ${imp}</div>`;
-}
-allForms.forEach(k => updateSummary(k));
  
+/* ── quiz ── */
+const quizConfig = {
+  math: { correct:'B', feedback:{ correct:'Правильно! 14 ÷ 7 = 2, тобто зошитів 6, ручок 8. Загальна кількість завжди ділиться на суму частин відношення (3+4=7).', wrong:'Неправильно. Загальна кількість має ділитись на суму 3+4 = 7. Правильна відповідь — Б: 14 (14÷7=2).' }},
+  hist: { correct:'D', feedback:{ correct:'Правильно! Повстання К. Косинського (1591–1593) — перше козацько-селянське повстання. СПОЧАТКУ КОСИМО.', wrong:'Неправильно. Правильна відповідь — Г: Повстання К. Косинського (1591–1593). Запам\'ятай: СПОЧАТКУ КОСИМО — перше повстання Косинського.' }},
+  ukr:  { correct:'A', feedback:{ correct:'Правильно! «МайжЕ» + приголосний → «всі»; прийменник «по-» → «-х»: по партах.', wrong:'Неправильно. Правильна відповідь — А. «МайжЕ» перед приголосним → «всі»; прийменник «по-» → «-х»: по партах.' }},
+  bio:  { correct:'B', feedback:{ correct:'Правильно! ДНК містить дезоксирибозу. Пам\'ятай: Д — Дезоксирибоза, Р (РНК) — Рибоза.', wrong:'Неправильно. Правильна відповідь — Б: дезоксирибоза. ДНК = Дезоксирибонуклеїнова кислота — перша літера підкаже!' }},
+  eng:  { correct:'C', feedback:{ correct:'Правильно! Після модального дієслова can завжди стоїть інфінітив без to: can transform.', wrong:'Неправильно. Правильна відповідь — В: transform. Після can (та інших модальних) — базова форма дієслова без закінчень і без to.' }}
+};
+const quizState = {};
+ 
+function selectOpt(subject, val) {
+  if (quizState[subject]?.answered) return;
+  quizState[subject] = quizState[subject] || {};
+  quizState[subject].selected = val;
+  document.querySelectorAll(`#quiz-${subject}-opts .quiz-option`).forEach(el => el.classList.toggle('selected', el.dataset.val===val));
+  document.getElementById(`quiz-${subject}-btn`).disabled = false;
+}
+ 
+function checkQuiz(subject) {
+  const state = quizState[subject];
+  if (!state?.selected || state.answered) return;
+  state.answered = true;
+  const correct = quizConfig[subject].correct;
+  const isRight = state.selected === correct;
+  const fb = quizConfig[subject].feedback;
+  document.querySelectorAll(`#quiz-${subject}-opts .quiz-option`).forEach(el => {
+    el.classList.add('locked');
+    if (el.dataset.val === correct) el.classList.add(isRight && el.dataset.val===state.selected ? 'correct' : 'show-correct');
+    if (!isRight && el.dataset.val===state.selected) el.classList.add('wrong');
+  });
+  const fbEl = document.getElementById(`quiz-${subject}-feedback`);
+  fbEl.style.display = 'block';
+  fbEl.innerHTML = isRight
+    ? `<div class="quiz-feedback correct-fb"><span class="fb-icon">✅</span><div class="fb-text"><strong>Правильно!</strong>${fb.correct}</div></div>`
+    : `<div class="quiz-feedback wrong-fb"><span class="fb-icon">❌</span><div class="fb-text"><strong>Не зовсім...</strong>${fb.wrong}</div></div>`;
+  document.getElementById(`quiz-${subject}-btn`).disabled = true;
+  // show teacher bubble after answer
+  const bubble = document.getElementById(`bubble-${subject}`);
+  if (bubble) bubble.style.display = 'block';
+}
+ 
+/* ── charts ── */
 const extraColors = { bio:'#97C459', lit:'#ED93B1', eng:'#FFB347' };
- 
-function updateExtraName() { updateScores(); }
- 
-function getExtraLabel() {
-  const v = document.getElementById('extra-pick').value;
-  return { bio:'Біологія', lit:'Укр. література', eng:'Англійська' }[v];
-}
-function getExtraColor() {
-  return extraColors[document.getElementById('extra-pick').value] || '#ED93B1';
-}
- 
+function getExtraLabel() { return {bio:'Біологія',lit:'Укр. Літ.',eng:'Англійська'}[document.getElementById('extra-pick').value]; }
+function getExtraColor() { return extraColors[document.getElementById('extra-pick').value]||'#ED93B1'; }
 const fixedSubjects = [
-  { id:'math',    label:'Математика',    nowId:'math-now',    goalId:'math-goal',    gapId:'math-gap',    color:'#97C459' },
-  { id:'history', label:'Історія',       nowId:'history-now', goalId:'history-goal', gapId:'history-gap', color:'#F0997B' },
-  { id:'ukr2',    label:'Українська',    nowId:'ukr2-now',    goalId:'ukr2-goal',    gapId:'ukr2-gap',    color:'#85B7EB' },
+  {label:'Математика',nowId:'math-now',   goalId:'math-goal',   gapId:'math-gap',    color:'#97C459'},
+  {label:'Історія',   nowId:'history-now',goalId:'history-goal',gapId:'history-gap', color:'#F0997B'},
+  {label:'Українська',nowId:'ukr2-now',   goalId:'ukr2-goal',   gapId:'ukr2-gap',    color:'#85B7EB'},
 ];
- 
 let scoresChart, declineChart;
  
 function getAll() {
-  const rows = fixedSubjects.map(s => ({
-    label: s.label,
-    now:   parseInt(document.getElementById(s.nowId)?.value)  || 0,
-    goal:  parseInt(document.getElementById(s.goalId)?.value) || 0,
-    gapId: s.gapId,
-    color: s.color
-  }));
-  rows.push({
-    label: getExtraLabel(),
-    now:   parseInt(document.getElementById('extra-now')?.value)  || 0,
-    goal:  parseInt(document.getElementById('extra-goal')?.value) || 0,
-    gapId: 'extra-gap',
-    color: getExtraColor()
-  });
+  const rows = fixedSubjects.map(s => ({label:s.label, now:parseInt(document.getElementById(s.nowId)?.value)||0, goal:parseInt(document.getElementById(s.goalId)?.value)||0, gapId:s.gapId, color:s.color}));
+  rows.push({label:getExtraLabel(), now:parseInt(document.getElementById('extra-now')?.value)||0, goal:parseInt(document.getElementById('extra-goal')?.value)||0, gapId:'extra-gap', color:getExtraColor()});
   return rows;
 }
  
@@ -191,88 +449,44 @@ function updateScores() {
   const rows = getAll();
   rows.forEach(r => {
     const gap = r.goal - r.now;
-    const el  = document.getElementById(r.gapId);
-    if (el) el.innerHTML = `<span class="gap-badge ${gap>0?'gap-need':gap<0?'gap-over':'gap-done'}">${gap>0?'+'+gap+' до мети':gap<0?(gap*-1)+' вище мети':'Ціль досягнута'}</span>`;
+    const el = document.getElementById(r.gapId);
+    if (el) el.innerHTML = `<span class="gap-badge ${gap>0?'gap-need':gap<0?'gap-over':'gap-done'}">${gap>0?'+'+gap+' до мети':gap<0?Math.abs(gap)+' вище мети':'Ціль досягнута'}</span>`;
   });
   if (scoresChart) scoresChart.destroy();
   scoresChart = new Chart(document.getElementById('scores-chart'), {
     type:'bar',
-    data:{
-      labels: rows.map(r=>r.label),
-      datasets:[
-        { label:'Бал зараз',    data:rows.map(r=>r.now),  backgroundColor:rows.map(r=>r.color), borderWidth:0, borderRadius:4 },
-        { label:'Омріяний бал', data:rows.map(r=>r.goal), backgroundColor:'rgba(0,0,0,0.06)', borderWidth:1, borderColor:'rgba(0,0,0,0.15)', borderRadius:4 }
-      ]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{display:false} },
-      scales:{
-        y:{ min:0, max:210, ticks:{stepSize:50}, grid:{color:'rgba(0,0,0,0.06)'} },
-        x:{ grid:{display:false} }
-      }
-    }
+    data:{labels:rows.map(r=>r.label),datasets:[
+      {label:'Бал зараз',data:rows.map(r=>r.now),backgroundColor:rows.map(r=>r.color),borderWidth:0,borderRadius:6},
+      {label:'Омріяний бал',data:rows.map(r=>r.goal),backgroundColor:'rgba(0,0,0,0.06)',borderWidth:1,borderColor:'rgba(0,0,0,0.12)',borderRadius:6}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:0,max:210,ticks:{stepSize:50},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false}}}}
   });
   updateDecline();
 }
  
 function updateDecline() {
-  const rows   = getAll();
+  const rows = getAll();
   const months = 12;
-  const labels = [];
-  for (let m=0; m<=months; m++) labels.push(m===0?'Зараз':`${m} міс.`);
- 
-  const solidColors   = ['#185FA5','#3B6D11','#993C1D','#993556'];
-  const dashedColors  = ['rgba(24,95,165,0.5)','rgba(59,109,17,0.5)','rgba(153,60,29,0.5)','rgba(153,53,86,0.5)'];
- 
-  const datasets = [];
-  rows.forEach((r, i) => {
-    const withStudy = [], without = [];
-    for (let m=0; m<=months; m++) {
-      withStudy.push(Math.min(Math.round(r.now+(200-r.now)*(m/months)*0.75),200));
-      without.push(Math.round(r.now*Math.pow(0.93,m)));
-    }
-    datasets.push({
-      label: r.label+' (підготовка)',
-      data: withStudy,
-      borderColor: solidColors[i],
-      backgroundColor: 'transparent',
-      tension: 0.35, fill: false, borderWidth: 2.5, pointRadius: 2
-    });
-    datasets.push({
-      label: r.label+' (без підготовки)',
-      data: without,
-      borderColor: dashedColors[i],
-      backgroundColor: 'transparent',
-      tension: 0.35, fill: false, borderWidth: 2, borderDash: [5,4], pointRadius: 2
-    });
-  });
- 
+  const labels = Array.from({length:months+1},(_,m)=>m===0?'Зараз':`${m} міс.`);
+  // average now and goal across subjects
+  const avgNow  = Math.round(rows.reduce((s,r)=>s+r.now, 0)/rows.length);
+  const withStudy = [], without = [];
+  for (let m=0;m<=months;m++) {
+    withStudy.push(Math.min(Math.round(avgNow+(200-avgNow)*(m/months)*0.75),200));
+    without.push(Math.round(avgNow*Math.pow(0.93,m)));
+  }
   if (declineChart) declineChart.destroy();
   declineChart = new Chart(document.getElementById('decline-chart'), {
     type:'line',
-    data:{ labels, datasets },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{display:false} },
-      scales:{
-        y:{ min:0, max:210, ticks:{stepSize:50}, grid:{color:'rgba(0,0,0,0.06)'} },
-        x:{ grid:{display:false}, ticks:{autoSkip:false, maxRotation:0} }
-      }
-    }
+    data:{labels, datasets:[
+      {label:'З підготовкою',data:withStudy,borderColor:'#1D4ED8',backgroundColor:'rgba(29,78,216,0.08)',fill:true,tension:.4,borderWidth:3,pointRadius:3,pointBackgroundColor:'#1D4ED8'},
+      {label:'Без підготовки',data:without,borderColor:'rgba(29,78,216,.45)',backgroundColor:'transparent',fill:false,tension:.4,borderWidth:2,borderDash:[6,4],pointRadius:2}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y} балів`}}},scales:{y:{min:0,max:210,ticks:{stepSize:50},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false},ticks:{maxRotation:0}}}}
   });
- 
-  const leg = document.getElementById('legend3');
-  leg.innerHTML = rows.map((r,i) =>
-    `<span style="display:flex;align-items:center;gap:5px">
-      <span style="width:12px;height:3px;background:${solidColors[i]};border-radius:2px;display:inline-block"></span>
-      <span style="font-size:12px">${r.label}</span>
-    </span>`
-  ).join('');
 }
  
-setTimeout(()=>{ updateScores(); }, 100);
+setTimeout(()=>updateScores(), 120);
 </script>
 </body>
 </html>
- 
