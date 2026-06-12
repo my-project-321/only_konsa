@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Інтерактивна презентація</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 24px; color: #1a1a1a; }
+.slide { background: #fff; border: 1px solid #e0e0e0; border-radius: 16px; padding: 32px 36px; margin-bottom: 24px; max-width: 860px; margin-left: auto; margin-right: auto; }
+.slide-tag { font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+.slide-heading { font-size: 26px; font-weight: 600; margin-bottom: 6px; }
+.slide-sub { font-size: 15px; color: #666; margin-bottom: 24px; }
+.field-row { margin-bottom: 16px; }
+.field-label { font-size: 14px; color: #555; margin-bottom: 6px; }
+.field-input { width: 100%; font-size: 15px; padding: 9px 13px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #1a1a1a; outline: none; transition: border-color .2s; }
+.field-input:focus { border-color: #185FA5; }
+.slider-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.slider-wrap input[type=range] { flex: 1; accent-color: #185FA5; }
+.slider-val { font-size: 16px; font-weight: 600; min-width: 28px; text-align: right; color: #185FA5; }
+.summary-box { background: #f8f8f8; border-radius: 10px; padding: 16px 20px; margin-top: 8px; }
+.slabel { font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+.summary-line { font-size: 14px; line-height: 2.1; color: #333; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.subject-card { border-radius: 10px; padding: 14px 16px; }
+.sname { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.input-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.input-row label { font-size: 13px; color: #666; }
+.num-input { width: 74px; font-size: 14px; font-weight: 600; text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 5px 8px; background: #fff; color: #1a1a1a; outline: none; }
+.num-input:focus { border-color: #185FA5; }
+.gap-badge { display: inline-block; font-size: 12px; padding: 3px 9px; border-radius: 6px; margin-top: 4px; font-weight: 500; }
+.gap-need { background: #fff0f0; color: #a32d2d; }
+.gap-over { background: #eaf3de; color: #27500a; }
+.gap-done { background: #e8f4ff; color: #0c447c; }
+.select-styled { font-size: 14px; padding: 7px 11px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #1a1a1a; outline: none; cursor: pointer; }
+.select-styled:focus { border-color: #185FA5; }
+.nav-tabs { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
+.nav-tab { padding: 7px 15px; border-radius: 8px; border: 1px solid #ddd; background: #fff; font-size: 13px; color: #555; cursor: pointer; transition: all .15s; font-family: inherit; }
+.nav-tab:hover { background: #f0f6ff; border-color: #185FA5; color: #185FA5; }
+.nav-tab.active { background: #185FA5; border-color: #185FA5; color: #fff; font-weight: 500; }
+</style>
+</head>
+<body>
+ 
+<!-- SLIDE 1 -->
+<div class="slide">
+  <div class="slide-tag">Слайд 1</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active"  onclick="showSubject('math')">Математика</button>
+    <button class="nav-tab"         onclick="showSubject('hist')">Історія</button>
+    <button class="nav-tab"         onclick="showSubject('ukr')">Українська</button>
+    <button class="nav-tab"         onclick="showSubject('bio')">Біологія</button>
+    <button class="nav-tab"         onclick="showSubject('lit')">Укр. література</button>
+    <button class="nav-tab"         onclick="showSubject('eng')">Англійська</button>
+  </div>
+ 
+  <!-- форми для кожного предмету -->
+  <div id="form-math"><div class="slide-heading">Математика</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="math-level" oninput="updateSummary('math')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="math-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="math-hard" placeholder="Напиши назву теми..." oninput="updateSummary('math')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="math-fav" placeholder="Напиши назву теми..." oninput="updateSummary('math')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="math-imp" placeholder="Напиши через кому..." oninput="updateSummary('math')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="math-summary"></div></div></div>
+ 
+  <div id="form-hist" style="display:none"><div class="slide-heading">Історія</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="hist-level" oninput="updateSummary('hist')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="hist-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="hist-hard" placeholder="Напиши назву теми..." oninput="updateSummary('hist')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="hist-fav" placeholder="Напиши назву теми..." oninput="updateSummary('hist')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="hist-imp" placeholder="Напиши через кому..." oninput="updateSummary('hist')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="hist-summary"></div></div></div>
+ 
+  <div id="form-ukr" style="display:none"><div class="slide-heading">Українська мова</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="ukr-level" oninput="updateSummary('ukr')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="ukr-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="ukr-hard" placeholder="Напиши назву теми..." oninput="updateSummary('ukr')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="ukr-fav" placeholder="Напиши назву теми..." oninput="updateSummary('ukr')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="ukr-imp" placeholder="Напиши через кому..." oninput="updateSummary('ukr')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="ukr-summary"></div></div></div>
+ 
+  <div id="form-bio" style="display:none"><div class="slide-heading">Біологія</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="bio-level" oninput="updateSummary('bio')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="bio-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="bio-hard" placeholder="Напиши назву теми..." oninput="updateSummary('bio')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="bio-fav" placeholder="Напиши назву теми..." oninput="updateSummary('bio')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="bio-imp" placeholder="Напиши через кому..." oninput="updateSummary('bio')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="bio-summary"></div></div></div>
+ 
+  <div id="form-lit" style="display:none"><div class="slide-heading">Українська література</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="lit-level" oninput="updateSummary('lit')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="lit-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="lit-hard" placeholder="Напиши назву теми..." oninput="updateSummary('lit')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="lit-fav" placeholder="Напиши назву теми..." oninput="updateSummary('lit')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="lit-imp" placeholder="Напиши через кому..." oninput="updateSummary('lit')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="lit-summary"></div></div></div>
+ 
+  <div id="form-eng" style="display:none"><div class="slide-heading">Англійська мова</div><div class="slide-sub">Оціни свій рівень (від 1 до 10)</div><div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div><div class="slider-wrap"><span style="font-size:13px;color:#999">1</span><input type="range" min="1" max="10" step="1" value="5" id="eng-level" oninput="updateSummary('eng')"><span style="font-size:13px;color:#999">10</span><span class="slider-val" id="eng-level-v">5</span></div><div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="eng-hard" placeholder="Напиши назву теми..." oninput="updateSummary('eng')"></div><div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="eng-fav" placeholder="Напиши назву теми..." oninput="updateSummary('eng')"></div><div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="eng-imp" placeholder="Напиши через кому..." oninput="updateSummary('eng')"></div><div class="summary-box"><div class="slabel">Твої відповіді</div><div class="summary-line" id="eng-summary"></div></div></div>
+</div>
+ 
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="slide-tag">Слайд 2</div>
+  <div class="slide-heading" style="margin-bottom:20px">Встановимо точку А</div>
+  <div class="grid2">
+    <!-- Математика -->
+    <div class="subject-card" style="background:#eaf3de">
+      <div class="sname" style="color:#3B6D11">Математика</div>
+      <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="math-now" value="140" min="0" max="200" oninput="updateScores()"></div>
+      <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="math-goal" value="200" min="0" max="200" oninput="updateScores()"></div>
+      <div id="math-gap"></div>
+    </div>
+    <!-- Історія -->
+    <div class="subject-card" style="background:#fef0eb">
+      <div class="sname" style="color:#993C1D">Історія</div>
+      <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="history-now" value="135" min="0" max="200" oninput="updateScores()"></div>
+      <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="history-goal" value="180" min="0" max="200" oninput="updateScores()"></div>
+      <div id="history-gap"></div>
+    </div>
+    <!-- Українська -->
+    <div class="subject-card" style="background:#e8f2fd">
+      <div class="sname" style="color:#185FA5">Українська мова</div>
+      <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="ukr2-now" value="180" min="0" max="200" oninput="updateScores()"></div>
+      <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="ukr2-goal" value="200" min="0" max="200" oninput="updateScores()"></div>
+      <div id="ukr2-gap"></div>
+    </div>
+    <!-- 4-й предмет з вибором -->
+    <div class="subject-card" style="background:#fceaf2">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+        <select class="select-styled" id="extra-pick" onchange="updateExtraName()">
+          <option value="bio">Біологія</option>
+          <option value="lit">Укр. література</option>
+          <option value="eng">Англійська</option>
+        </select>
+      </div>
+      <div class="input-row"><label>Бал зараз</label><input type="number" class="num-input" id="extra-now" value="120" min="0" max="200" oninput="updateScores()"></div>
+      <div class="input-row"><label>Омріяний бал</label><input type="number" class="num-input" id="extra-goal" value="150" min="0" max="200" oninput="updateScores()"></div>
+      <div id="extra-gap"></div>
+    </div>
+  </div>
+ 
+  <div style="position:relative;height:260px;">
+    <canvas id="scores-chart" role="img" aria-label="Графік балів за предметами"></canvas>
+  </div>
+</div>
+ 
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="slide-tag">Слайд 3</div>
+  <div class="slide-heading">Що буде, якщо відтягувати підготовку?</div>
+  <div style="font-size:13px;color:#888;margin:6px 0 24px">Побудовано на основі твоїх балів зі слайду 2 — усі чотири предмети</div>
+  <div style="position:relative;height:320px;">
+    <canvas id="decline-chart" role="img" aria-label="Графік падіння результату без підготовки"></canvas>
+  </div>
+  <div style="display:flex;gap:20px;margin-top:14px;font-size:13px;color:#666;flex-wrap:wrap" id="legend3"></div>
+</div>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const allForms = ['math','hist','ukr','bio','lit','eng'];
+const subjectNames = {math:'Математика',hist:'Історія',ukr:'Українська мова',bio:'Біологія',lit:'Укр. література',eng:'Англійська'};
+ 
+function showSubject(key) {
+  allForms.forEach(k => { document.getElementById('form-'+k).style.display = k===key?'':'none'; });
+  document.querySelectorAll('.nav-tab').forEach((btn,i) => { btn.classList.toggle('active', allForms[i]===key); });
+}
+ 
+function updateSummary(key) {
+  const level = document.getElementById(key+'-level').value;
+  document.getElementById(key+'-level-v').textContent = level;
+  const hard = document.getElementById(key+'-hard').value || '—';
+  const fav  = document.getElementById(key+'-fav').value  || '—';
+  const imp  = document.getElementById(key+'-imp').value  || '—';
+  document.getElementById(key+'-summary').innerHTML =
+    `<div><span style="color:#888">Рівень знань:</span> <strong>${level}/10</strong></div>` +
+    `<div><span style="color:#888">Найскладніша тема:</span> ${hard}</div>` +
+    `<div><span style="color:#888">Найулюбленіша тема:</span> ${fav}</div>` +
+    `<div><span style="color:#888">Найважливіші теми:</span> ${imp}</div>`;
+}
+allForms.forEach(k => updateSummary(k));
+ 
+const extraColors = { bio:'#97C459', lit:'#ED93B1', eng:'#FFB347' };
+ 
+function updateExtraName() { updateScores(); }
+ 
+function getExtraLabel() {
+  const v = document.getElementById('extra-pick').value;
+  return { bio:'Біологія', lit:'Укр. література', eng:'Англійська' }[v];
+}
+function getExtraColor() {
+  return extraColors[document.getElementById('extra-pick').value] || '#ED93B1';
+}
+ 
+const fixedSubjects = [
+  { id:'math',    label:'Математика',    nowId:'math-now',    goalId:'math-goal',    gapId:'math-gap',    color:'#97C459' },
+  { id:'history', label:'Історія',       nowId:'history-now', goalId:'history-goal', gapId:'history-gap', color:'#F0997B' },
+  { id:'ukr2',    label:'Українська',    nowId:'ukr2-now',    goalId:'ukr2-goal',    gapId:'ukr2-gap',    color:'#85B7EB' },
+];
+ 
+let scoresChart, declineChart;
+ 
+function getAll() {
+  const rows = fixedSubjects.map(s => ({
+    label: s.label,
+    now:   parseInt(document.getElementById(s.nowId)?.value)  || 0,
+    goal:  parseInt(document.getElementById(s.goalId)?.value) || 0,
+    gapId: s.gapId,
+    color: s.color
+  }));
+  rows.push({
+    label: getExtraLabel(),
+    now:   parseInt(document.getElementById('extra-now')?.value)  || 0,
+    goal:  parseInt(document.getElementById('extra-goal')?.value) || 0,
+    gapId: 'extra-gap',
+    color: getExtraColor()
+  });
+  return rows;
+}
+ 
+function updateScores() {
+  const rows = getAll();
+  rows.forEach(r => {
+    const gap = r.goal - r.now;
+    const el  = document.getElementById(r.gapId);
+    if (el) el.innerHTML = `<span class="gap-badge ${gap>0?'gap-need':gap<0?'gap-over':'gap-done'}">${gap>0?'+'+gap+' до мети':gap<0?(gap*-1)+' вище мети':'Ціль досягнута'}</span>`;
+  });
+  if (scoresChart) scoresChart.destroy();
+  scoresChart = new Chart(document.getElementById('scores-chart'), {
+    type:'bar',
+    data:{
+      labels: rows.map(r=>r.label),
+      datasets:[
+        { label:'Бал зараз',    data:rows.map(r=>r.now),  backgroundColor:rows.map(r=>r.color), borderWidth:0, borderRadius:4 },
+        { label:'Омріяний бал', data:rows.map(r=>r.goal), backgroundColor:'rgba(0,0,0,0.06)', borderWidth:1, borderColor:'rgba(0,0,0,0.15)', borderRadius:4 }
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false} },
+      scales:{
+        y:{ min:0, max:210, ticks:{stepSize:50}, grid:{color:'rgba(0,0,0,0.06)'} },
+        x:{ grid:{display:false} }
+      }
+    }
+  });
+  updateDecline();
+}
+ 
+function updateDecline() {
+  const rows   = getAll();
+  const months = 12;
+  const labels = [];
+  for (let m=0; m<=months; m++) labels.push(m===0?'Зараз':`${m} міс.`);
+ 
+  const solidColors   = ['#185FA5','#3B6D11','#993C1D','#993556'];
+  const dashedColors  = ['rgba(24,95,165,0.5)','rgba(59,109,17,0.5)','rgba(153,60,29,0.5)','rgba(153,53,86,0.5)'];
+ 
+  const datasets = [];
+  rows.forEach((r, i) => {
+    const withStudy = [], without = [];
+    for (let m=0; m<=months; m++) {
+      withStudy.push(Math.min(Math.round(r.now+(200-r.now)*(m/months)*0.75),200));
+      without.push(Math.round(r.now*Math.pow(0.93,m)));
+    }
+    datasets.push({
+      label: r.label+' (підготовка)',
+      data: withStudy,
+      borderColor: solidColors[i],
+      backgroundColor: 'transparent',
+      tension: 0.35, fill: false, borderWidth: 2.5, pointRadius: 2
+    });
+    datasets.push({
+      label: r.label+' (без підготовки)',
+      data: without,
+      borderColor: dashedColors[i],
+      backgroundColor: 'transparent',
+      tension: 0.35, fill: false, borderWidth: 2, borderDash: [5,4], pointRadius: 2
+    });
+  });
+ 
+  if (declineChart) declineChart.destroy();
+  declineChart = new Chart(document.getElementById('decline-chart'), {
+    type:'line',
+    data:{ labels, datasets },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false} },
+      scales:{
+        y:{ min:0, max:210, ticks:{stepSize:50}, grid:{color:'rgba(0,0,0,0.06)'} },
+        x:{ grid:{display:false}, ticks:{autoSkip:false, maxRotation:0} }
+      }
+    }
+  });
+ 
+  const leg = document.getElementById('legend3');
+  leg.innerHTML = rows.map((r,i) =>
+    `<span style="display:flex;align-items:center;gap:5px">
+      <span style="width:12px;height:3px;background:${solidColors[i]};border-radius:2px;display:inline-block"></span>
+      <span style="font-size:12px">${r.label}</span>
+    </span>`
+  ).join('');
+}
+ 
+setTimeout(()=>{ updateScores(); }, 100);
+</script>
+</body>
+</html>
+ 
