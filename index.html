@@ -23,9 +23,9 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
 .field-label { font-size: 13px; font-weight: 500; color: #444; margin-bottom: 6px; }
 .field-input { width: 100%; font-size: 15px; padding: 10px 14px; border: 1.5px solid #dde1ea; border-radius: 10px; background: #fff; color: #1a1a1a; outline: none; transition: border-color .2s; font-family: inherit; }
 .field-input:focus { border-color: #3B7DE8; }
-.slider-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.slider-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .slider-wrap input[type=range] { flex: 1; accent-color: #1D4ED8; height: 4px; }
-.slider-val { font-size: 17px; font-weight: 700; min-width: 30px; text-align: right; color: #1D4ED8; }
+.slider-ticks { display: flex; justify-content: space-between; font-size: 11px; color: #aaa; margin-bottom: 20px; padding: 0 2px; }
 .summary-box { background: #f7f8fa; border-radius: 12px; padding: 16px 20px; margin-top: 8px; border: 1px solid #eaedf2; }
 .slabel { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
 .summary-line div { font-size: 14px; line-height: 2.2; color: #333; }
@@ -158,9 +158,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
   <!-- ─── МАТЕМАТИКА ─── -->
   <div id="form-math">
     <div class="slide-heading">Математика</div>
-    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="slide-sub">Оціни свій рівень (від 0 до 10)</div>
     <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
-    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="math-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="math-level-v">5</span></div>
+    <div class="slider-wrap"><input type="range" min="0" max="10" step="1" value="5" id="math-level"></div>
+    <div class="slider-ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
     <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="math-hard" placeholder="Напиши назву теми..."></div>
     <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="math-fav" placeholder="Напиши назву теми..."></div>
     <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="math-imp" placeholder="Напиши через кому..."></div>
@@ -168,7 +169,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
     <div class="topics-block">
       <div class="topics-title">Теми, що принесуть найбільше балів</div>
       <ul class="topics-list"><li>Стереометрія</li><li>Функції</li><li>Тригонометрія</li></ul>
-      <div class="score-visual"><div class="score-fraction">9/36</div><div class="score-eq">=</div><div class="score-total"><span class="num">10</span><span class="lbl">тестових балів</span></div></div>
+      <div class="score-visual"><div class="score-fraction">9/32</div><div class="score-eq">=</div><div class="score-total"><span class="num">10</span><span class="lbl">тестових балів</span></div></div>
     </div>
     <div class="quiz-block">
       <div class="quiz-title">Практичне завдання</div>
@@ -191,9 +192,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
   <!-- ─── ІСТОРІЯ ─── -->
   <div id="form-hist" style="display:none">
     <div class="slide-heading">Історія</div>
-    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="slide-sub">Оціни свій рівень (від 0 до 10)</div>
     <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
-    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="hist-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="hist-level-v">5</span></div>
+    <div class="slider-wrap"><input type="range" min="0" max="10" step="1" value="5" id="hist-level"></div>
+    <div class="slider-ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
     <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="hist-hard" placeholder="Напиши назву теми..."></div>
     <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="hist-fav" placeholder="Напиши назву теми..."></div>
     <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="hist-imp" placeholder="Напиши через кому..."></div>
@@ -201,7 +203,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
     <div class="topics-block">
       <div class="topics-title">Теми, що принесуть найбільше балів</div>
       <ul class="topics-list"><li>Руїна</li><li>Культура XIX ст.</li><li>Українська революція (1917–1921 рр.)</li></ul>
-      <div class="score-visual"><div class="score-fraction">5/32</div><div class="score-eq">=</div><div class="score-total"><span class="num">16</span><span class="lbl">тестових балів</span></div></div>
+      <div class="score-visual"><div class="score-fraction">5/54</div><div class="score-eq">=</div><div class="score-total"><span class="num">16</span><span class="lbl">тестових балів</span></div></div>
     </div>
     <div class="quiz-block">
       <div class="quiz-title">Практичне завдання</div>
@@ -245,9 +247,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
   <!-- ─── УКРАЇНСЬКА ─── -->
   <div id="form-ukr" style="display:none">
     <div class="slide-heading">Українська мова</div>
-    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="slide-sub">Оціни свій рівень (від 0 до 10)</div>
     <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
-    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="ukr-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="ukr-level-v">5</span></div>
+    <div class="slider-wrap"><input type="range" min="0" max="10" step="1" value="5" id="ukr-level"></div>
+    <div class="slider-ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
     <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="ukr-hard" placeholder="Напиши назву теми..."></div>
     <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="ukr-fav" placeholder="Напиши назву теми..."></div>
     <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="ukr-imp" placeholder="Напиши через кому..."></div>
@@ -255,7 +258,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
     <div class="topics-block">
       <div class="topics-title">Теми, що принесуть найбільше балів</div>
       <ul class="topics-list"><li>Члени речення</li><li>Складні речення</li><li>Частини мови</li></ul>
-      <div class="score-visual"><div class="score-fraction">15/35</div><div class="score-eq">=</div><div class="score-total"><span class="num">28</span><span class="lbl">тестових балів</span></div></div>
+      <div class="score-visual"><div class="score-fraction">15/45</div><div class="score-eq">=</div><div class="score-total"><span class="num">28</span><span class="lbl">тестових балів</span></div></div>
     </div>
     <div class="quiz-block">
       <div class="quiz-title">Практичне завдання</div>
@@ -279,9 +282,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
   <!-- ─── БІОЛОГІЯ ─── -->
   <div id="form-bio" style="display:none">
     <div class="slide-heading">Біологія</div>
-    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="slide-sub">Оціни свій рівень (від 0 до 10)</div>
     <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
-    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="bio-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="bio-level-v">5</span></div>
+    <div class="slider-wrap"><input type="range" min="0" max="10" step="1" value="5" id="bio-level"></div>
+    <div class="slider-ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
     <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="bio-hard" placeholder="Напиши назву теми..."></div>
     <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="bio-fav" placeholder="Напиши назву теми..."></div>
     <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="bio-imp" placeholder="Напиши через кому..."></div>
@@ -289,7 +293,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
     <div class="topics-block">
       <div class="topics-title">Теми, що принесуть найбільше балів</div>
       <ul class="topics-list"><li>Ботаніка</li><li>Зоологія</li><li>Генетика</li></ul>
-      <div class="score-visual"><div class="score-fraction">17/36</div><div class="score-eq">=</div><div class="score-total"><span class="num">22</span><span class="lbl">тестових бали</span></div></div>
+      <div class="score-visual"><div class="score-fraction">17/46</div><div class="score-eq">=</div><div class="score-total"><span class="num">22</span><span class="lbl">тестових бали</span></div></div>
     </div>
     <div class="quiz-block">
       <div class="quiz-title">Практичне завдання</div>
@@ -312,22 +316,45 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
   <!-- ─── УКР. ЛІТ (заглушка) ─── -->
   <div id="form-lit" style="display:none">
     <div class="slide-heading">Українська література</div>
-    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="slide-sub">Оціни свій рівень (від 0 до 10)</div>
     <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
-    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="lit-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="lit-level-v">5</span></div>
+    <div class="slider-wrap"><input type="range" min="0" max="10" step="1" value="5" id="lit-level"></div>
+    <div class="slider-ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
     <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="lit-hard" placeholder="Напиши назву теми..."></div>
     <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="lit-fav" placeholder="Напиши назву теми..."></div>
     <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="lit-imp" placeholder="Напиши через кому..."></div>
     
-    <div class="topics-block" style="text-align:center;padding:24px 0;color:#aaa;font-size:14px">Теми та завдання будуть додані незабаром</div>
+    <div class="topics-block">
+      <div class="topics-title">Теми, що принесуть найбільше балів</div>
+      <ul class="topics-list"><li>Література 20 століття</li><li>Франко / Леся Українка / Коцюбинський</li><li>Шевченко + народна творчість</li></ul>
+      <div class="score-visual"><div class="score-fraction">12/45</div><div class="score-eq">=</div><div class="score-total"><span class="num">22</span><span class="lbl">тестових балів</span></div></div>
+    </div>
+    <div class="quiz-block">
+      <div class="quiz-title">Практичне завдання</div>
+      <div class="quiz-question">Перші десятиріччя після скасування кріпацтва — історичне тло твору, у якому зав'язкою є</div>
+      <div class="quiz-options" id="quiz-lit-opts">
+        <div class="quiz-option" data-val="A" onclick="selectOpt('lit','A')"><span class="opt-letter">А</span><span class="opt-text">початок подорожі Енея з троянцями</span></div>
+        <div class="quiz-option" data-val="B" onclick="selectOpt('lit','B')"><span class="opt-letter">Б</span><span class="opt-text">возний пропонує Наталці одружитися з ним</span></div>
+        <div class="quiz-option" data-val="C" onclick="selectOpt('lit','C')"><span class="opt-letter">В</span><span class="opt-text">Карпо Кайдаш одружується з Мотрею</span></div>
+        <div class="quiz-option" data-val="D" onclick="selectOpt('lit','D')"><span class="opt-letter">Г</span><span class="opt-text">приїзд Шрама із сином у Хмарище</span></div>
+        <div class="quiz-option" data-val="E" onclick="selectOpt('lit','E')"><span class="opt-letter">Д</span><span class="opt-text">Тугар Вовк прибуває з дочкою в Тухольщину</span></div>
+      </div>
+      <button class="quiz-check-btn" id="quiz-lit-btn" onclick="checkQuiz('lit')" disabled>Перевірити</button>
+      <div id="quiz-lit-feedback" style="display:none"></div>
+      <div class="teacher-bubble" id="bubble-lit">
+        <strong>Підказка від викладача</strong>
+        Кріпацтво скасували 1861 року — і саме на цей час припадає одруження Карпа й Мотрі в «Кайдашевій сім'ї» Нечуя-Левицького. Інші твори (Енеїда, Наталка Полтавка, Хмари, Захар Беркут) описують зовсім інші епохи: античність-бароко, кінець XVIII ст. або взагалі Київську Русь.
+      </div>
+    </div>
   </div>
  
   <!-- ─── АНГЛІЙСЬКА ─── -->
   <div id="form-eng" style="display:none">
     <div class="slide-heading">Англійська мова</div>
-    <div class="slide-sub">Оціни свій рівень (від 1 до 10)</div>
+    <div class="slide-sub">Оціни свій рівень (від 0 до 10)</div>
     <div class="field-label" style="margin-bottom:6px">Загальний рівень знань</div>
-    <div class="slider-wrap"><span style="font-size:13px;color:#aaa">1</span><input type="range" min="1" max="10" step="1" value="5" id="eng-level"><span style="font-size:13px;color:#aaa">10</span><span class="slider-val" id="eng-level-v">5</span></div>
+    <div class="slider-wrap"><input type="range" min="0" max="10" step="1" value="5" id="eng-level"></div>
+    <div class="slider-ticks"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
     <div class="field-row"><div class="field-label">Яка тема найскладніша?</div><input class="field-input" type="text" id="eng-hard" placeholder="Напиши назву теми..."></div>
     <div class="field-row"><div class="field-label">Яка тема найулюбленіша?</div><input class="field-input" type="text" id="eng-fav" placeholder="Напиши назву теми..."></div>
     <div class="field-row" style="margin-bottom:22px"><div class="field-label">Які теми найважливіші?</div><input class="field-input" type="text" id="eng-imp" placeholder="Напиши через кому..."></div>
@@ -339,7 +366,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans
         <li>Лексика для Use of English (easily confused words, prepositional phrases, phrasal verbs, synonyms)</li>
         <li>Граматика (часи, інфінітив/герундій, ступені порівняння)</li>
       </ul>
-      <div class="score-visual"><div class="score-fraction">15/35</div><div class="score-eq">=</div><div class="score-total"><span class="num">28</span><span class="lbl">тестових балів</span></div></div>
+      <div class="score-visual"><div class="score-fraction">15/32</div><div class="score-eq">=</div><div class="score-total"><span class="num">28</span><span class="lbl">тестових балів</span></div></div>
     </div>
     <div class="quiz-block">
       <div class="quiz-title">Практичне завдання</div>
@@ -393,7 +420,8 @@ const quizConfig = {
   hist: { correct:'D', feedback:{ correct:'Правильно! Повстання К. Косинського (1591–1593) — перше козацько-селянське повстання. СПОЧАТКУ КОСИМО.', wrong:'Неправильно. Правильна відповідь — Г: Повстання К. Косинського (1591–1593). Запам\'ятай: СПОЧАТКУ КОСИМО — перше повстання Косинського.' }},
   ukr:  { correct:'A', feedback:{ correct:'Правильно! «МайжЕ» + приголосний → «всі»; прийменник «по-» → «-х»: по партах.', wrong:'Неправильно. Правильна відповідь — А. «МайжЕ» перед приголосним → «всі»; прийменник «по-» → «-х»: по партах.' }},
   bio:  { correct:'B', feedback:{ correct:'Правильно! ДНК містить дезоксирибозу. Пам\'ятай: Д — Дезоксирибоза, Р (РНК) — Рибоза.', wrong:'Неправильно. Правильна відповідь — Б: дезоксирибоза. ДНК = Дезоксирибонуклеїнова кислота — перша літера підкаже!' }},
-  eng:  { correct:'C', feedback:{ correct:'Правильно! Після модального дієслова can завжди стоїть інфінітив без to: can transform.', wrong:'Неправильно. Правильна відповідь — В: transform. Після can (та інших модальних) — базова форма дієслова без закінчень і без to.' }}
+  eng:  { correct:'C', feedback:{ correct:'Правильно! Після модального дієслова can завжди стоїть інфінітив без to: can transform.', wrong:'Неправильно. Правильна відповідь — В: transform. Після can (та інших модальних) — базова форма дієслова без закінчень і без to.' }},
+  lit:  { correct:'C', feedback:{ correct:'Правильно! Дія «Кайдашевої сім\'ї» Нечуя-Левицького розгортається саме в перші десятиліття після скасування кріпацтва (1861 р.), і одруження Карпа з Мотрею — це зав\'язка твору.', wrong:'Неправильно. Правильна відповідь — В: Карпо Кайдаш одружується з Мотрею («Кайдашева сім\'я»). Саме цей твір описує життя селян одразу після скасування кріпацтва 1861 року.' }}
 };
 const quizState = {};
  
